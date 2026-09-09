@@ -1,0 +1,19 @@
+{
+  "name": "spotify-organizer",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:api\" \"npm run dev:web\"",
+    "dev:api": "npm --workspace apps/api run dev",
+    "dev:web": "npm --workspace apps/web run dev",
+    "build": "npm --workspace apps/api run build && npm --workspace apps/web run build",
+    "start:api": "npm --workspace apps/api run start",
+    "start:web": "npm --workspace apps/web run preview -- --host 0.0.0.0"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1"
+  }
+}
